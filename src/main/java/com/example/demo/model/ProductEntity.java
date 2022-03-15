@@ -6,10 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Getter
@@ -17,6 +14,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name="product")
 public class ProductEntity implements Serializable {
 
     @Id
@@ -28,6 +26,15 @@ public class ProductEntity implements Serializable {
     private long productPrice;
     private String pictureUrl;
     private String description;
+
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private CategoryEntity categoryEntity;
+
+    @ManyToOne
+    @JoinColumn(name = "cart_id", nullable = false)
+    private CartEntity cartEntity;
 
 
 

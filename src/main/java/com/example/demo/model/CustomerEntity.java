@@ -10,27 +10,25 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-
+@NoArgsConstructor
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name="Category")
-public class CategoryEntity implements Serializable {
+@Table(name="customer")
+public class CustomerEntity implements Serializable {
 
     @Id
     @NotNull
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    private long categoryId;
+    private long customerId;
 
-    private String categoryName;
-    private String categoryDescription;
-
-    @OneToMany(mappedBy = "categoryEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<ProductEntity> productEntityList;
+    private String customerName;
+    private String address;
 
 
+    @OneToMany(mappedBy = "customerEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<CartEntity> cartEntityList;
 
 
 }
