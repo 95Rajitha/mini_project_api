@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,16 +27,18 @@ public class ProductEntity implements Serializable {
     private String productName;
     private long productPrice;
     private String pictureUrl;
-    private String description;
+    private String producerInfo;
+    private Date manufactureDate;
+    private Date expireDate;
+    private long numberOfUnits;
 
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity categoryEntity;
 
-    @ManyToOne
-    @JoinColumn(name = "cart_id", nullable = false)
-    private CartEntity cartEntity;
+    @OneToMany(mappedBy = "cartEntity")
+    private List<PurchaseQuantity> purchaseQuantityList ;
 
 
 

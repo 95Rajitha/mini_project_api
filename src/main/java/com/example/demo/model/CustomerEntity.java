@@ -24,7 +24,7 @@ public class CustomerEntity implements Serializable {
     private long customerId;
 
     private String customerName;
-    private String address;
+    private String password;
 
 
     @OneToMany(mappedBy = "customerEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

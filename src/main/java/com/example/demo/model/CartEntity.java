@@ -25,14 +25,16 @@ public class CartEntity implements Serializable {
     private long cartId;
 
     private String cartStatus;
-    private long cartTotal;
+    private String cartTitle;
 
 
-    @OneToMany(mappedBy = "cartEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<ProductEntity> productEntityList;
+    @OneToMany(mappedBy = "cartEntity")
+    private List<PurchaseQuantity> purchaseQuantityList;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private CustomerEntity customerEntity;
+
+
 
 }
