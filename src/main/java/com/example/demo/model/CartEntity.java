@@ -27,7 +27,6 @@ public class CartEntity implements Serializable {
     private String cartStatus;
     private String cartTitle;
 
-
     @OneToMany(mappedBy = "cartEntity")
     private List<PurchaseQuantity> purchaseQuantityList;
 
