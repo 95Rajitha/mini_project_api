@@ -24,4 +24,5 @@ public class PurchaseQuantityKey implements Serializable {
     long productId;
 
 
+
 }
