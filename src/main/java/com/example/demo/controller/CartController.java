@@ -45,31 +45,12 @@ public class CartController {
     @Autowired
     private PurchaseQuatityTransformer purchaseQuatityTransformer;
 
-    @PostMapping( "/carts" )
-    public ResponseEntity<List<CartResponseDto>> addProcessedCart(@RequestBody CartRequestDto cartRequestDto ){
 
-        if(cartRequestDto == null){
-            throw new EmptyObjectException("Cart object is null");
-        }
-        CustomerEntity customerEntity = customerTransformer.getCustomeEntity(cartRequestDto);
-        CustomerEntity customer  = customerService.addCustomer(customerEntity);
-
-        if(customer==null){
-           log.error("Customer object is null");
-            throw  new EmptyObjectException("Customer Object is null");
-        }
-
-        List <CartEntity> cartEntityList =cartTransformer.convertToCartEntityList(customer,cartRequestDto);
-
-            cartService.addProcessedCart(cartEntityList);
-
-        List<CartResponseDto> cartResponseDtoList =new ArrayList<>();
-
-        return new ResponseEntity<>( cartResponseDtoList ,HttpStatus.OK );
-
-    }
-
-
+    /**
+     * adding a cart to
+     * @param cartRequestDto
+     * @return CartResponseDto
+     */
     @PostMapping( "/addcart" )
     public ResponseEntity<List<CartResponseDto>> addToCart(@RequestBody CartRequestDto cartRequestDto ){
 

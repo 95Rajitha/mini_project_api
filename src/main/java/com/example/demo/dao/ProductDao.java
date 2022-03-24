@@ -89,7 +89,11 @@ public class ProductDao {
 
     }
 
-
+    /**
+     * get the product entity list of a cart
+     * @param purchasedProductIds
+     * @return ProductEntity
+     */
     public List<ProductEntity> getCartProductEntities(List<Long> purchasedProductIds) {
 
         List<ProductEntity> purchasedProductEntityList =  new ArrayList<>();

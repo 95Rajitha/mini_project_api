@@ -19,25 +19,12 @@ public class CartTransformer {
     private  PurchaseQuatityTransformer purchaseQuatityTransformer;
 
 
-    public List<CartEntity> convertToCartEntityList(CustomerEntity customer, CartRequestDto cartRequestDto) {
-
-        List<CartEntity> cartEntityList = new ArrayList<>();
-
-
-        cartRequestDto.getItems().forEach(cart -> {
-            CartEntity cartEntity =  new CartEntity();
-            cartEntity.setCartTitle(cart.getName());
-            cartEntity.setTotalCost(cart.getSubTotal());
-            cartEntity.setCustomerEntity(customer);
-
-
-            cartEntityList.add(cartEntity);
-        });
-            return  cartEntityList;
-    }
-
-
-
+    /**
+     * transforming the request DTO to Cart Entity
+     * @param customer
+     * @param cartRequestDto
+     * @return CartEntity
+     */
     public List<CartEntity> cartEntityTransformation(CustomerEntity customer, CartRequestDto cartRequestDto) {
 
 

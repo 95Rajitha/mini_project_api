@@ -18,7 +18,11 @@ public class PurchaseQuatityTransformer {
     @Autowired
     private PurchaseQuantityService purchaseQuantityService;
 
-
+    /**
+     * creating purchase entity for the realtionship
+     * @param cartInfoDto
+     * @return
+     */
     public List<PurchaseQuantity> convertToPurchaseQuantity(CartInfoDto cartInfoDto) {
 
 

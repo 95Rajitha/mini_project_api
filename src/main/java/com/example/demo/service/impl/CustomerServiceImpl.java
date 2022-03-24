@@ -12,6 +12,11 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerDao customerDao;
 
+    /**
+     * adding a user to the user table
+     * @param customerEntity
+     * @return
+     */
     public CustomerEntity addCustomer(CustomerEntity customerEntity){
 
         return customerDao.addCustomer(customerEntity);

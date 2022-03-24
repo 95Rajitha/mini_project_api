@@ -14,6 +14,10 @@ public class CartServiceImpl implements CartService {
     @Autowired
     private CartDao cartDao;
 
+    /**
+     * adding dispatched cart to the DB
+     * @param cartEntityList
+     */
     public void addProcessedCart(List<CartEntity> cartEntityList){
         cartDao.addProcessedCart(cartEntityList);
     }

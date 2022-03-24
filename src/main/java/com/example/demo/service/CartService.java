@@ -7,5 +7,9 @@ import java.util.List;
 
 @Service
 public interface CartService {
+    /**
+     * adding dispatched cart to the DB
+     * @param cartEntityList
+     */
     void addProcessedCart(List<CartEntity> cartEntityList);
 }

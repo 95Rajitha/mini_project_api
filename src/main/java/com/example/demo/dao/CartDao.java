@@ -15,6 +15,10 @@ public class CartDao {
     @Autowired
     private CartRepository cartRepository;
 
+    /**
+     * adding dispatched cart to the DB
+     * @param cartEntityList
+     */
     public void addProcessedCart(List<CartEntity> cartEntityList) {
 
         cartRepository.saveAll(cartEntityList);

@@ -11,7 +11,11 @@ public class CustomerDao {
     @Autowired
     private CustomerRepository customerRepository;
 
-
+    /**
+     * Adding a user to the user table
+     * @param customerEntity
+     * @return
+     */
     public CustomerEntity addCustomer(CustomerEntity customerEntity) {
        return customerRepository.save(customerEntity);
     }
