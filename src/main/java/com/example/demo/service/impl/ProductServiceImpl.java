@@ -19,9 +19,9 @@ public class ProductServiceImpl implements ProductService {
 
     /**
      * get all the products
-     * @return ProductResponseDto list
+     * @return ProductEntity
      */
-    public List<ProductResponseDto> getAllProducts() throws EmptyListException
+    public List<ProductEntity> getAllProducts() throws EmptyListException
     {
        return productDao.getAllProducts();
    }

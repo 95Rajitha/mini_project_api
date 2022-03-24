@@ -28,23 +28,26 @@ public class ProductController {
 
     /**
      * get all the Products
-     * @return ProductResponseDto
+     * @return ProductEntity
      */
     @GetMapping( "/products" )
     public ResponseEntity<List<ProductResponseDto>> getAllProducts() throws EmptyListException
     {
 
-      List<ProductResponseDto> productResponseDtoList= productService.getAllProducts();
+      List<ProductEntity> productEntityList = productService.getAllProducts();
+
+        List<ProductResponseDto>  productResponseDtoList =productTransformer.convertToProductResponseDtoList(productEntityList);
+
         if( productResponseDtoList.isEmpty() )
         {
-            log.warn( "product List is Empty" );
+            log.warn( "productResponseDtoList List is Empty" );
             return new ResponseEntity<>( HttpStatus.NOT_FOUND );
+        }else{
+
+            return new ResponseEntity<>( productResponseDtoList ,HttpStatus.OK );
+
         }
-        else
-        {
-            log.info( "Accessed product list");
-            return new ResponseEntity<>( productResponseDtoList, HttpStatus.OK );
-        }
+
     }
 
     /**

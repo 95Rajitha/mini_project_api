@@ -6,12 +6,14 @@ import com.example.demo.repository.ProductRepository;
 import com.example.demo.restdto.ProductRequestDto;
 import com.example.demo.restdto.ProductResponseDto;
 import com.example.demo.transformers.ProductTransformer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Component
 public class ProductDao {
 
@@ -23,10 +25,10 @@ public class ProductDao {
 
 
     /**
-     * get all th products
-     * @return ProductResponseDto
+     * get all the products
+     * @return ProductEntity
      */
-    public List<ProductResponseDto> getAllProducts() throws EmptyListException
+    public List<ProductEntity> getAllProducts() throws EmptyListException
     {
         List <ProductEntity> productEntityList =  new ArrayList<>();
 
@@ -34,10 +36,12 @@ public class ProductDao {
 
         if( productEntityList.isEmpty() )
         {
-            throw new EmptyListException( "Hotel Table has no data" );
+            log.error("Product Table has no data");
+            throw new EmptyListException( "Product Table has no data" );
         }
 
-        return productTransformer.convertToProductResponseDtoList(productEntityList);
+        return productEntityList;
+
 
     }
 
@@ -54,6 +58,7 @@ public class ProductDao {
 
          if(productEntityList.isEmpty())
          {
+             log.error("Product Table has no category data");
              throw new EmptyListException( "product Table has no data" );
          }
 
@@ -75,7 +80,8 @@ public class ProductDao {
 
         if(productEntityList.isEmpty())
         {
-            throw new EmptyListException( "product Table has no data" );
+            log.warn("Product Table has no matching product data");
+            throw new EmptyListException( "product Table has no matching data" );
         }
 
         return productEntityList;

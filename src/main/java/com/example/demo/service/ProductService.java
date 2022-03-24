@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ProductService {
 
-    List<ProductResponseDto> getAllProducts() throws EmptyListException;
+    List<ProductEntity> getAllProducts() throws EmptyListException;
 
     List<ProductEntity> getProductsInCategory(String category) throws EmptyListException;
 
