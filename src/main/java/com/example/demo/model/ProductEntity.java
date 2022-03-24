@@ -37,10 +37,10 @@ public class ProductEntity implements Serializable {
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity categoryEntity;
 
-    @OneToMany(mappedBy = "cartEntity")
-    private List<PurchaseQuantity> purchaseQuantityList ;
 
-
+//    @Column(nullable = true)
+    @OneToMany(mappedBy = "productEntity")
+    private List<PurchaseQuantity> purchaseQuantityList;
 
 
 

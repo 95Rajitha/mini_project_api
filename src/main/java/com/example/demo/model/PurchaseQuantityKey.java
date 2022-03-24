@@ -17,11 +17,13 @@ import java.io.Serializable;
 public class PurchaseQuantityKey implements Serializable {
 
 
+    @Column(name="product_id")
+    long productId;
+
     @Column(name="cart_id")
     long cartId;
 
-    @Column(name="product_id")
-    long productId;
+
 
 
 
