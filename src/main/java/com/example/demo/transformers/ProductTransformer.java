@@ -15,7 +15,7 @@ public class ProductTransformer {
      * @param productEntityList
      * @return
      */
-    public List<ProductResponseDto> convertToProductResponseDto(List<ProductEntity> productEntityList) {
+    public List<ProductResponseDto> convertToProductResponseDtoList(List<ProductEntity> productEntityList) {
 
         List<ProductResponseDto> productResponseDtoList = new ArrayList<>();
 
@@ -35,4 +35,5 @@ public class ProductTransformer {
         return productResponseDtoList;
 
     }
+
 }
