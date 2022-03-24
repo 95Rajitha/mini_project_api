@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import com.example.demo.exception.EmptyListException;
+import com.example.demo.exception.EmptyObjectException;
 import com.example.demo.model.ProductEntity;
 import com.example.demo.repository.ProductRepository;
 import com.example.demo.restdto.ProductRequestDto;
@@ -89,5 +90,18 @@ public class ProductDao {
     }
 
 
+    public List<ProductEntity> getCartProductEntities(List<Long> purchasedProductIds) {
 
+        List<ProductEntity> purchasedProductEntityList =  new ArrayList<>();
+
+          productRepository.findAllById(purchasedProductIds).forEach(purchasedProductEntityList::add);
+
+          if(purchasedProductEntityList.isEmpty()){
+              log.error("purchased product entity list empty Contradiction");
+              throw new EmptyListException("Purchased product entity list empty");
+          }
+
+          return  purchasedProductEntityList;
+
+    }
 }

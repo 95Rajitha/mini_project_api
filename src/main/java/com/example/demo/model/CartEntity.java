@@ -24,7 +24,7 @@ public class CartEntity implements Serializable {
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private long cartId;
 
-    private String cartStatus;
+    private long totalCost;
     private String cartTitle;
 
     @OneToMany(mappedBy = "cartEntity")

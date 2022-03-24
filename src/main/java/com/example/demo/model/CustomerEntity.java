@@ -20,12 +20,10 @@ public class CustomerEntity implements Serializable {
 
     @Id
     @NotNull
-    @GeneratedValue( strategy = GenerationType.IDENTITY )
-    private long customerId;
+//    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    private String customerId;
 
     private String customerName;
-    private String password;
-
 
     @OneToMany(mappedBy = "customerEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<CartEntity> cartEntityList;
