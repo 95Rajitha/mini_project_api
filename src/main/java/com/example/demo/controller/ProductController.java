@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.constants.Constants;
 import com.example.demo.exception.EmptyListException;
 import com.example.demo.exception.EmptyObjectException;
 import com.example.demo.model.ProductEntity;
@@ -30,7 +31,7 @@ public class ProductController {
      * get all the Products
      * @return ProductEntity
      */
-    @GetMapping( "/products" )
+    @GetMapping(Constants.PRODUCT_URL)
     public ResponseEntity<List<ProductResponseDto>> getAllProducts() throws EmptyListException
     {
 
@@ -56,7 +57,7 @@ public class ProductController {
      * @return ProductResponseDto
      * @throws EmptyListException
      */
-    @GetMapping("/products/{category}")
+    @GetMapping(Constants.PRODUCT_CATEGORY)
     public ResponseEntity<List<ProductResponseDto>> getProductsInCategory(@PathVariable String category) throws EmptyListException {
 
         List<ProductEntity> productEntityList = productService.getProductsInCategory(category.trim());
@@ -81,7 +82,7 @@ public class ProductController {
      * @return ProductResponseDto
      * @throws EmptyObjectException
      */
-    @PostMapping("/products/")
+    @PostMapping(Constants.PRODUCT_SEARCH)
     public ResponseEntity<List<ProductResponseDto>> getMatchingProducts(@RequestBody ProductRequestDto productRequestDto) throws EmptyObjectException, EmptyListException {
 
 

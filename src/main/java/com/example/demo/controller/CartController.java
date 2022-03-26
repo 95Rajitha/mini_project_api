@@ -1,9 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.constants.Constants;
 import com.example.demo.exception.EmptyObjectException;
 import com.example.demo.model.CartEntity;
 import com.example.demo.model.CustomerEntity;
-import com.example.demo.model.PurchaseQuantity;
 import com.example.demo.restdto.CartRequestDto;
 import com.example.demo.restdto.CartResponseDto;
 import com.example.demo.service.CartService;
@@ -51,7 +51,7 @@ public class CartController {
      * @param cartRequestDto
      * @return CartResponseDto
      */
-    @PostMapping( "/addcart" )
+    @PostMapping(Constants.PURCHASE_URL)
     public ResponseEntity<List<CartResponseDto>> addToCart(@RequestBody CartRequestDto cartRequestDto ){
 
         if(cartRequestDto == null){
